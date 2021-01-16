@@ -1,0 +1,30 @@
+#blogBox{
+    width: 75%;
+    margin: 0px auto;
+    border: 1px solid #ccc;
+    padding: 0 25px 25px 25px;
+}
+#blogBox h3{
+    height: 60px;
+    line-height: 60px;
+    font-size: 25px;
+    text-align: center;
+    padding-top: 15px;
+}
+#blogBox p{
+    height: 50px;
+    line-height: 50px;
+    font-size: 16px;
+    color: rgb(68, 62, 62);
+    text-align: center;
+}
+#blogBox .bContent{
+    font-size: 18px;
+    color: black;
+    text-indent: 2rem;
+}
+#content span{
+    display: block;
+    text-indent: 4rem;
+    margin-bottom: 25px;
+}

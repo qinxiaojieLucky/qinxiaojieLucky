@@ -1,0 +1,21 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+ul{
+    list-style: none;
+}
+#backTop{
+    width: 45px;
+    height: 45px;
+    position: fixed;
+    bottom: 40px;
+    right: 15px;
+    border: 1px solid #b39964;
+    background: #fdfdfd;
+    color: #b39964;
+    font-size: 30px;
+    box-sizing: border-box;
+    padding-left: 13px;
+    cursor: pointer;
+}

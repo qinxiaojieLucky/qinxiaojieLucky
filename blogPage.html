@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>小青蛙博客</title>
+    <link rel="stylesheet" href="./css/blogpage.css">
+    <link rel="stylesheet" href="./css/common.css">
+    <link rel="stylesheet" href="./css/bootstrap.css">
+    <link rel="stylesheet" href="./neko-framework/css/layout/neko-framework-layout.css">
+    
+    <script src="./js/common.js"></script>
+</head>
+<body>
+    <div class="navbar navbar-default navbar-fixed-top" style="background-color: #3ea1df; height: 58px;">
+        <div class="container">
+            <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li><a style="color: white; line-height: 0px;" href="./index.html">小青蛙博客</a></li>
+                <li><a style="color: white; line-height: 0px;" href="./sortBlog.html">标签分类</a></li>
+                <li><a style="color: white; line-height: 0px;" href="./comment.html">留言板</a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                <li><a style="color: white; line-height: 0px;" href="./login.html"> 个人中心</a></li>
+                </ul>  
+            </div><!--/.nav-collapse -->
+        </div>
+    </div>
+    <div id="blogBox" style="height: auto;">
+        <h3 class="h3">Django启用memcache缓存</h3>
+        <p> 发表于 2020-10-23 |  分类于  Python| 阅读次数：130|  本文字数： 1.6k |  阅读时长 ≈ 1 分钟</p>
+        <div id="content">
+            <span>
+                 在动态网站中,用户所有的请求,服务器都会去数据库中进行相应的增,删,查,改,渲染模板,执行业务逻辑,最后生成用户看到的页面.
+                当一个网站的用户访问量很大的时候,每一次的的后台操作,都会消耗很多的服务端资源,所以必须使用缓存来减轻后端服务器的压力.
+                缓存是将一些常用的数据保存内存或者memcache中,在一定的时间内有人来访问这些数据时,则不再去执行数据库及渲染等操作,而是
+                直接从内存或memcache的缓存中去取得数据,然后返回给用户.
+            </span>
+            <span>
+                首先要导入cache，使用{% load cache %}，同样缓存时必须携带两个参数，第一个是缓存时间，第二个是缓存片段的名称。
+                memcached是一个很好用的缓存数据库，在一些小型分布式系统中具有非常好的性能，但是随着系统不断扩大，memcahed也需要扩容，
+                这是耗时耗力的，而且memcached不支持数据持久化，服务器重启后数据就没了。当我们更在意数据持久化，需要储存更多类型的数据时
+                使用redis替换掉memcached是一个更好的选择。不管是memcached还是redis，我们在缓存数据的时候经常要缓存object对象，
+                对于这种key/value的非关系型数据库而言本身是不支持这种数据类型的，但并不代表不可行。想要在缓存中保存object，需要先对obje
+                ct进行序列化，将其准化成可以进行储存的形式存入缓存中，从缓存中读取数据时需要进行反序列化。
+            </span>
+            <span>用户所有的请求,服务器都会去数据库中进行相应的增,删,查,改,渲染模板,执行业务逻辑,最后生成用户看到的页面.
+                当一个网站的用户访问量很大的时候,每一次的的后台操作,都会消耗很多的服务端资源,所以必须使用缓存来减轻后端服务器的压力.
+                缓存是将一些常用的数据保存内存或者memcache中,在一定的时间内有人来访问这些数据时,则不再去执行数据库及渲染等操作,而是
+                直接从内存或memcache的缓存中去取得数据,然后返回给用户.
+            </span>
+            <span>
+                入cache，使用{% load cache %}，同样缓存时必须携带两个参数，第一个是缓存时间，第二个是缓存片段的名称。
+                memcached是一个很好用的缓存数据库，在一些小型分布式系统中具有非常好的性能，但是随着系统不断扩大，memcahed也需要扩容，
+                这是耗时耗力的，而且memcached不支持数据持久化，服务器重启后数据就没了。当我们更在意数据持久化，需要储存更多类型的数据时
+                使用redis替换掉memcached是一个更好的选择。不管是memcached还是redis，我们在缓存数据的时候经常要缓存object对象，
+                对于这种key/value的非关系型数据库而言本身是不支持这种数据类型的，但并不代表不可行。想要在缓存中保存object，需要先对obje
+                ct进行序列化，将其准化成可以进行储存的形式存入缓存中，从缓存中读取数据时需要进行反序列化。
+            </span>
+            <span>服务器都会去数据库中进行相应的增,删,查,改,渲染模板,执行业务逻辑,最后生成用户看到的页面.
+                当一个网站的用户访问量很大的时候,每一次的的后台操作,都会消耗很多的服务端资源,所以必须使用缓存来减轻后端服务器的压力.
+                缓存是将一些常用的数据保存内存或者memcache中,在一定的时间内有人来访问这些数据时,则不再去执行数据库及渲染等操作,而是
+                直接从内存或memcache的缓存中去取得数据,然后返回给用户.
+            </span>
+            <span>缓存时必须携带两个参数，第一个是缓存时间，第二个是缓存片段的名称。
+                memcached是一个很好用的缓存数据库，在一些小型分布式系统中具有非常好的性能，但是随着系统不断扩大，memcahed也需要扩容，
+                这是耗时耗力的，而且memcached不支持数据持久化，服务器重启后数据就没了。当我们更在意数据持久化，需要储存更多类型的数据时
+                使用redis替换掉memcached是一个更好的选择。不管是memcached还是redis，我们在缓存数据的时候经常要缓存object对象，
+                对于这种key/value的非关系型数据库而言本身是不支持这种数据类型的，但并不代表不可行。想要在缓存中保存object，需要先对obje
+                ct进行序列化，将其准化成可以进行储存的形式存入缓存中，从缓存中读取数据时需要进行反序列化。
+            </span>
+            <span>服务器都会去数据库中进行相应的增,删,查,改,渲染模板,执行业务逻辑,最后生成用户看到的页面.
+                当一个网站的用户访问量很大的时候,每一次的的后台操作,都会消耗很多的服务端资源,所以必须使用缓存来减轻后端服务器的压力.
+                缓存是将一些常用的数据保存内存或者memcache中,在一定的时间内有人来访问这些数据时,则不再去执行数据库及渲染等操作,而是
+                直接从内存或memcache的缓存中去取得数据,然后返回给用户.
+            </span>
+            <span>缓存时必须携带两个参数，第一个是缓存时间，第二个是缓存片段的名称。
+                memcached是一个很好用的缓存数据库，在一些小型分布式系统中具有非常好的性能，但是随着系统不断扩大，memcahed也需要扩容，
+                这是耗时耗力的，而且memcached不支持数据持久化，服务器重启后数据就没了。当我们更在意数据持久化，需要储存更多类型的数据时
+                使用redis替换掉memcached是一个更好的选择。不管是memcached还是redis，我们在缓存数据的时候经常要缓存object对象，
+                对于这种key/value的非关系型数据库而言本身是不支持这种数据类型的，但并不代表不可行。想要在缓存中保存object，需要先对obje
+                ct进行序列化，将其准化成可以进行储存的形式存入缓存中，从缓存中读取数据时需要进行反序列化。
+            </span>
+        </div>
+    </div>
+    <!-- 底部 -->
+    <footer id="main-footer" style="padding-top: 0; background-color: #3ea1df; color: white;">
+        <div id="footer-rights">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <p>Copyright  ©  2021 小青蛙 <a href="#" target="blank">Little DEMO</a> / All rights reserved.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- 返回顶部 -->
+    <div id="backTop" style="display: none;">
+        △
+    </div>
+</body>
+</html>

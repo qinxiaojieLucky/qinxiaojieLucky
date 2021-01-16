@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+<head>
+
+	<meta charset="utf-8">
+	<title>小青蛙博客</title>
+	<meta name="description" content="neko-description">
+	<meta name="author" content="Little NEKO">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+	<link type="text/css" rel="stylesheet" href="neko-framework/css/layout/neko-framework-layout.css">
+    <link rel="stylesheet" href="./css/bootstrap.css">
+    <link rel="stylesheet" href="./css/comment.css">
+    <link rel="stylesheet" href="./css/common.css">
+    
+    <script src="./js/vue.js"></script>
+    <script src="./js/common.js"></script>
+    <script src="./js/bootstrap.min.js"></script>
+    <script src="./js/canvas-particle.js"></script>
+</head>
+<body class="activate-appear-animation header-7">
+    <div id="app">
+        <!-- 头部 -->
+        <div class="navbar navbar-default navbar-fixed-top" style="background-color: #3ea1df;">
+            <div class="container">
+              <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li><a style="color: white;" href="./index.html">小青蛙博客</a></li>
+                    <li><a style="color: white;" href="./sortBlog.html">标签分类</a></li>
+                    <li><a style="color: white;" href="./comment.html">留言板</a></li>
+                  </ul>
+                  <ul class="nav navbar-nav navbar-right">
+                    <li><a style="color: white;" href="./login.html"> 个人中心</a></li>
+                  </ul>   
+              </div><!--/.nav-collapse -->
+            </div>
+          </div>
+        <!-- 中间部分 -->
+        <div id="global-wrapper">
+            <main id="">
+                <section class="pt pb-medium" id="comment">
+                    <h3>留言互动</h3>
+                    <img class="img" src="./images/liuyan.gif" alt="">
+                    <!-- 留言框 -->
+                    <div id="comment" class="container">
+                        <div id="comment_head">
+                            <textarea name="comment" id="enjoy" v-model="content" placeholder="欢迎留下您的评论，～～～～"></textarea>
+                            <div id="share">
+                                <div style="float: left;">输入你的昵称：<input v-model="name" id="pname" type="text"></div>
+                                <button style="float: left; margin-left: 15px; padding: 2px 2px 1px 2px; border: 0; border-radius: 5px; background-color: #12930b; color: white;" id="btn_put" @click="subComment">发表评论</button>
+                            </div>
+                        </div>
+                        <div style="margin-top: -25px;">共有{{sum}}条评论</div>
+                        <div id="footer">
+                            <div id="commentList" v-for="(item,index) in comment">
+                                <div class="row" >
+                                    <div class="left_img">
+                                        <img :src="item.cimg" alt="">                        
+                                    </div>
+                                    <div class="left_content" >
+                                        <div>
+                                            <h4>
+                                                <span>{{item.cname}}</span> 
+                                                <span>{{item.cdate}}</span>
+                                            </h4>
+                                        </div>
+                                        <p>{{item.cContent}}</p>                        
+                                    </div>
+                                </div>
+                                <!-- <div class="right">
+                                    <i class="glyphicon glyphicon-thumbs-up"></i>
+                                    <i class="glyphicon glyphicon-edit"></i>
+                                </div> -->
+                            </div>           
+                        </div>
+                    </div>
+                </section>
+            </main>
+        </div>
+        <!-- 底部 -->
+        <footer id="main-footer" style="padding-top: 0; background-color: #3ea1df; color: white;">
+            <div id="footer-rights">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <p>Copyright  ©  2021 小青蛙 <a href="#" target="blank">Little DEMO</a> / All rights reserved.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <!-- 返回顶部 -->
+        <div id="backTop">
+            △
+        </div>
+    </div>
+</body>
+</html>
+<script>
+    var vm = new Vue({
+        el:'#app',
+        data:{
+            name:'',
+            content:'',
+            sum:4,
+            comment:[
+                {
+                    cname:'可口可乐',
+                    cContent:'人生来就是孤独的，不要奢望能够依靠谁，哪怕是至亲至爱。越是喧嚣处，往往更孤独。',
+                    cdate:'2021-1-9 19:58',
+                    cimg:'./images/lunbotu7.jpg'
+                },
+                {
+                    cname:'酸甜苦辣',
+                    cContent:'不为昨天烦恼，不为明天迷惘，只为今天更美好，别指望永远，永远最不可靠，很多时候，幸福转瞬即逝，变化无处不在。',
+                    cdate:'2021-1-9 19:58',
+                    cimg:'./images/lunbotu6.jpg'
+                },
+                {
+                    cname:'每天一个不一样的我',
+                    cContent:'每个人都有自己故事，只是演绎的方式不同。',
+                    cdate:'2021-1-9 19:58',
+                    cimg:'./images/lunbotu7.jpg'
+                },{
+                    cname:'薯条汉堡',
+                    cContent:'只要学不死，就往死里学。当你牛逼到一定程度时，你就有了话语权。累了看看父母，倦了想想未来。',
+                    cdate:'2021-1-9 19:58',
+                    cimg:'./images/lunbotu5.jpg'
+                }
+            ]
+        },
+        methods:{
+            //评论
+            subComment:function() {
+                var ncomment = {
+                    cname: this.name,
+                    cContent: this.content,
+                    cdate: Date.now(),
+                    cimg: './images/lunbotu7.jpg'
+                }
+                this.comment.unshift(ncomment); //添加最新评论，添加到数组最前面
+
+                //清空输入框
+                this.name = '';
+                this.content = '';
+                this.sum++;
+
+            },
+        }
+    })
+
+    var backTop = document.getElementById("backTop");
+    backTop.onclick = function(){
+        // 点击按钮，回到顶部 获取当前位置距离顶部的距离scollTop
+        // 设置scrollTop值，自减 往上滚动 setInterval
+        // 距离顶部为 0 清除计时器
+    
+        // 可见高度
+        var clientHeight = document.documentElement.clientHeight;
+        var timer = null;
+        var dtop;
+
+        window.onscroll = function(){
+            // 滚动条滚动的距离
+            dtop = document.documentElement.scrollTop; 
+        }
+        // console.log(dtop);
+        timer = setInterval(() => {
+            document.documentElement.scrollTop = dtop - 20;
+            dtop = dtop - 20;
+            // console.log(dtop);
+            if(dtop <= 0){
+                clearInterval(timer);
+            }
+        }, 300);
+    };
+
+    //滚动监听，是否显示返回顶部按钮
+    window.onscroll = function(){
+        var leng = document.documentElement.scrollTop;
+        if(leng => 300){
+            backTop.style.display = 'block';
+        };
+        if(leng < 300){
+            backTop.style.display = 'none';
+        };
+        
+    }
+</script>

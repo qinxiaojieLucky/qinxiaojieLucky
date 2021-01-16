@@ -1,11 +1,276 @@
 <!DOCTYPE html>
 <html lang="en">
+<meta http-equiv="content-type" content="text/html;charset=UTF-8" />
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+
+	<meta charset="utf-8">
+	<title>小青蛙博客</title>
+	<meta name="description" content="neko-description">
+	<meta name="author" content="Little NEKO">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+	<link type="text/css" rel="stylesheet" href="neko-framework/external-plugins/external-plugins.min.css">
+	<link type="text/css" rel="stylesheet" href="neko-framework/css/layout/neko-framework-layout.css">
+    <link rel="stylesheet" href="./css/bootstrap.css">
+    <link rel="stylesheet" href="./css/common.css">
+    <link rel="stylesheet" href="./css/index.css">
+    
+    <script src="./js/vue.js"></script>
+    <script src="./js/common.js"></script>
+    <script src="./js/bootstrap.min.js"></script>
+
+    <script src="./js/canvas-particle.js"></script>
 </head>
-<body>
-    <h2>咿咿呀呀</h2>
+<body class="activate-appear-animation header-7">
+    <div id="app">
+        <!-- 头部 -->
+        <div class="navbar navbar-default navbar-fixed-top" style="background-color: #3ea1df;">
+            <div class="container">
+
+              <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                  <li><a style="color: white;" href="./index.html">小青蛙博客</a></li>
+                  <li><a style="color: white;" href="./sortBlog.html">标签分类</a></li>
+                  <li><a style="color: white;" href="./comment.html">留言板</a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                  <li><a style="color: white;" href="./login.html"> 个人中心</a></li>
+                </ul>   
+              </div><!--/.nav-collapse -->
+            </div>
+          </div>
+        <!-- 中间部分 -->
+        <div id="global-wrapper">
+            <main id="">
+                <section class="pt pb-medium">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-8">	
+                                <!-- 轮播图 -->
+                                <div class="carousel" style="height: 400px; padding: 18px 0 30px 0;">
+                                    <div id="slider">
+                                        <ul id="imgList">
+                                            <li><img src="./images/lbt4.jpg" alt=""></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <!-- 文章列表 -->
+                                <article class="post box light-color mb" id="blogList" v-for="(item,index) in blogs">
+                                    <div class="row">
+                                        <div class="post-pic col-sm-4 col-md-4 mb-xs">
+                                            <a href="javascript:;"><img :src="item.img" alt="" class="responsive"/></a>
+                                        </div>
+                                        <div class="col-sm-8 col-md-8">
+                                           <a style="text-decoration: none;" href="./blogPage.html"> <h4><span id="Bh4">{{item.title}}</span></h4></a>
+                                            <ul class="entry-meta">
+                                                <li class="">
+                                                    <a class="tips" href="#" title="">{{item.date}}</a>
+                                                </li>
+                                                <li class="">
+                                                    <a class="tips" href="#" title="">{{item.label}}</a>
+                                                </li>
+
+                                                <li class="">
+                                                    <i class="icon-comment"></i>{{item.author}}
+                                                </li>
+                                            </ul>
+                                            <p>
+                                                {{item.content}}
+                                            </p>
+                                        </div>
+                                    </div>
+                                </article>
+                                <!-- 分页 -->
+                                <ul class="pagination">
+                                    <li><a href="#">«</a></li>
+                                    <li><a href="#">1</a></li>
+                                    <li><a href="#">2</a></li>
+                                    <li><a href="#">3</a></li>
+                                    <li><a href="#">4</a></li>
+                                    <li><a href="#">5</a></li>
+                                    <li><a href="#">»</a></li>
+                                </ul>
+                            </div>
+                            <aside class="col-md-4">
+                                <section class="widget" style="margin-left:25px; padding-top:50px">
+                                    <h3>我的名片</h3>
+                                    <p class="mb-small">网名：小青蛙 <br> 学校：广西科技大学-本科 <br>专业：18级软件工程专业<br>爱好：吃喝玩乐码代码</p>
+                                </section>
+                                <!-- IT资讯 -->
+                                <section class="widget" style="margin-bottom: 45px;">
+                                    <div class="tab-content" style="height: 280px; padding-left: 40px;">
+                                        <div role="tabpanel" class="tab-pane active" id="home">
+                                            <h4>IT资讯</h4>
+                                            <ul id="hotNews">
+                                                <li><a href="#"><i></i> 前端JS案例案例分享——小星星 </a></li>
+                                                <li><a href="#"><i></i> 前端案例分享——JS+CSS实现流星动画</a></li>
+                                                <li><a href="#"><i></i> Django启用memcache缓存</a></li>
+                                                <li><a href="#"><i></i> PHP对图片的处理</a></li>
+                                                <li><a href="#"><i></i> 用Python实现编程语言20年的动态排行榜</a></li>
+                                                <li><a href="#"><i></i> Redis常见使用场景</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </section>
+                                <!-- 近期更新 -->
+                                <section class="widget">
+                                    <div role="tabpanel" class="tab-pane active" id="profile" style="left: 15px; padding-bottom: 60px;">
+                                        <h4 style="padding-left: 25px; ">近期更新</h4>                            
+                                        <ul id="hotRank">
+                                            <li class="odd"><span>1</span>前端JS案例案例分享——小星星 </li>
+                                            <li><span>2</span>前端案例——JS+CSS实现流星</li>
+                                            <li class="odd"><span>3</span>前端JS案例案例分享——小星星 </li>
+                                            <li ><span>4</span>前端JS案例分享——轮播图</li>
+                                            <li class="odd"><span>5</span>前端JS案例分享——小星星</li>
+                                            <li ><span>6</span>前端案例——JS+CSS实现流星</li>
+                                        </ul>
+                                    </div>
+                                </section>
+                                <!-- 标签云 -->
+                                <section class="tag-cloud" id="tagCloud" style="padding-top: 170px; padding-left: 15px;">
+                                    <h3>标签云</h3>
+                                    <a href="#" class="w2">hadoop</a>
+                                    <a href="#" class="w1">java</a>
+                                    <a href="#" class="w3">C语言</a>
+                                    <a href="#" class="w3">Web</a>
+                                    <a href="#" class="w1">数据库</a>
+                                    <a href="#" class="w2">冒泡</a>
+                                    <a href="#" class="w2">javascript</a>
+                                    <a href="#" class="w1">webpack</a>
+                                    <a href="#" class="w3">滴滴云</a>
+                                    <a href="#" class="w2">python</a>
+                                    <a href="#" class="w3">bootstrap</a>
+                                    <a href="#" class="w2">element-ui</a>
+                                </section>
+                                <!-- 友情链接 -->
+                                <section class="widget" style="margin-bottom: 45px;">
+                                    <div class="tab-content" style="height: 280px; padding-left: 35px;">
+                                        <div role="tabpanel" class="tab-pane active" id="home">
+                                            <h4>友情链接</h4>
+                                            <ul id="hotNews">
+                                                <li><a style="color: rgb(56, 98, 221);" href="#"> My.Yong 博客</a></li>
+                                                <li><a style="color: rgb(56, 98, 221);" href="#">赵老师博客</a></li>
+                                                <li><a style="color: rgb(56, 98, 221);" href="#">老白博客</a></li>
+                                                <li><a style="color: rgb(56, 98, 221);" href="#">追梦者个人博客</a></li>
+                                                <li><a style="color: rgb(56, 98, 221);" href="#">多谷雨</a></li>
+                                                <li><a style="color: rgb(56, 98, 221);" href="#">四叶草博客</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </section>
+                            </aside>
+                        </div>
+                    </div>
+                </section>
+            </main>
+        </div>
+        <!-- 底部 -->
+        <footer id="main-footer" style="padding-top: 0; background-color: #3ea1df; color: white;">
+            <div id="footer-rights">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <p>Copyright  ©  2021 小青蛙 <a href="#" target="blank">Little DEMO</a> / All rights reserved.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <!-- 返回顶部 -->
+        <div id="backTop" style="display: none;">
+            △
+        </div>
+    </div>
 </body>
 </html>
+<script>
+    var vm = new Vue({
+        el:'#app',
+        data:{
+            blogs: [
+                {
+                    img:'./images/1.jpeg',
+                    title:'ApiCloud 动态生成dom元素绑定事件在IOS端失效的问题',
+                    date:'2020,12,21',
+                    label:'ApiCloud',
+                    content:'在ApiCloud app上动态生成的dom绑定事件，在andriod端正常，但是在ios端失效。主要原因可归根于在ios端safari浏览器浏览器处理事件冒泡上',
+                    author:'author:小青蛙'
+                },
+                {
+                    img:'./images/2.png',
+                    title:'YApi 开源接口管理平台搭建部署',
+                    date:'2020,12,20',
+                    label:'YApi',
+                    content:'高效、易用、功能强大的API管理平台旨在为开发、产品、测试人员提供更优雅的接口管理服务。安装要求：nodejs（7.6+) mongodb（2.6+）git 首先安装 mongodb',
+                    author:'author:小青蛙'
+                },
+                {
+                    img:'./images/3.jpg',
+                    title:'WordPress更新后一直提醒“有新的翻译可用”解决办法',
+                    date:'2020,12,18',
+                    label:'js',
+                    content:
+                    '嗯，一个LNMP的服务器装了wordpress以后，默认是英文的，改成中文显示就一直提示“有新的翻译可用”。查了下，在一个博客找到解决办法，也总结过来：打开php.ini 搜索 disable_functions 然后找到',
+                    author:'author:小青蛙'
+                },
+                {
+                    img:'./images/4.jpg',
+                    title:'腾讯云 TKE 里面获取客户端真实 IP',
+                    date:'2020,11,21',
+                    label:'python',
+                    content:'最近服务器都迁移到腾讯云 TKE 了，就是腾讯云 Kubernetes 服务，然后最近有个需求是获取客户端真实 IP。我的情况：',
+                    author:'author:小青蛙'
+                },
+                {
+                    img:'./images/5.jpg',
+                    title:'Django启用memcache缓存',
+                    date:'2020,12,21',
+                    label:'js',
+                    content:'在动态网站中,用户所有的请求,服务器都会去数据库中进行相应的增,删,查,改,渲染模板,执行业务逻辑,最后生成用户看到的页面.当一个网站的用户访问量很大的时候,每一次的的后台操作,都会消耗很多的服务端资源,所以必须使用缓存来减轻后端服务器的压力',
+                    author:'author:小青蛙'
+                }, 
+                {
+                    img:'./images/9.jpeg',
+                    title:'AppStore提交版本成功但是一直未出现构建版本+号',
+                    date:'2020,12,21',
+                    label:'js',
+                    content:'最近用application loader提交了很多个版本，每次都显示提交成功了，但是在appStore上一直没有看到提交上来的构建版本。找了很多方法最后发现原来是iOS10以后，苹果增强了对用户隐私的保护，访问照相机、相册、麦克风、定位、通讯录等，都需要在info.plist 文件中添加权限，而且少一个都不行。',
+                    author:'author:小青蛙'
+                },  
+            ],
+            imgs:[
+                { url:'./images/lbt1.jpg' },
+                { url:'./images/lbt2.png' },
+                { url:'./images/lbt3.jpg' },
+                { url:'./images/lbt4.jpg' },
+                { url:'./images/lbt5.jpg' }
+            ]
+        
+        }
+    })
+    // 轮播图
+    var timer = null;
+    var imgList = document.getElementById("imgList");
+    var imgs = imgList.getElementsByTagName("img");
+
+    var index = 1;
+
+    function autoPlay () {
+        timer = setInterval(function () {
+            imgs[0].src = './images/lbt'+ index +'.jpg';
+            if(index == 2){
+                imgs[0].src = './images/lbt'+ index +'.png';
+            }
+            index++;
+            if(index == 5){
+                index = 1;
+            }
+        },2500);
+    }
+    autoPlay();
+
+
+
+
+
+</script>

@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en">
+<meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+<head>
+
+	<meta charset="utf-8">
+	<title>小青蛙博客</title>
+	<meta name="description" content="neko-description">
+	<meta name="author" content="Little NEKO">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+    <link rel="stylesheet" href="../css/bootstrap.css">
+    <link rel="stylesheet" href="../css/qincss/sortBlog.css">
+    <link rel="stylesheet" href="../css/qincss/common.css">
+    <!-- <link rel="stylesheet" href="../css/qincss/neko-framework-layout.css"> -->
+
+    
+    <script src="../js/qinjs/common.js"></script>
+    <script src="../js/vue.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/qinjs/canvas-particle.js"></script>
+
+</head>
+<body class="activate-appear-animation header-7">
+    <div id="app">
+        <!-- 头部 -->
+        <div class="navbar navbar-default navbar-fixed-top" style="background-color: #3ea1df;">
+            <div class="container">
+              <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li><a style="color: white; " href="../html/Qindex.html">小青蛙博客</a></li>
+                    <li><a style="color: white; " href="../html/QsortBlog.html">标签分类</a></li>
+                    <li><a style="color: white;" href="../html/Qcomment.html">留言板</a></li>
+                  </ul>
+                  <ul class="nav navbar-nav navbar-right">
+                    <li><a style="color: white;" href="../html/Qlogin.html"> 个人中心</a></li>
+                  </ul> 
+              </div><!--/.nav-collapse -->
+            </div>
+          </div>
+        <!-- 中间部分 -->
+        <div class="container"  style="padding-top: 80px;">
+            <div class="row">
+                <header class="col-md-2">
+                    <div class="navb">
+                        <ul id="zx_list">
+                            <li value="0"><a href="#" style="color:turquoise">Python</a></li>
+                            <li value="1"><a href="#" >HTML&CSS</a></li>
+                            <li value="2"><a href="#" >Javascript</a></li>
+                            <li value="3"><a href="#" >JAVA</a></li>
+                            <li value="4"><a href="#" >Webpack</a></li>
+                            <li value="5"><a href="#" >Bootstrap</a></li>
+                        </ul>
+                    </div>                
+                </header>
+                <article class="col-md-10">
+                    <!-- Python -->
+                    <div class="publish">
+                        <div class="row" v-for="(item,index) in pList">
+                            <div class="col-sm-12">
+                                <h3><span id="Hheder">{{item.title}}</span></h3>
+                                <p class="text-muted hidden-xs"> <span>author:小青蛙 /</span> <span>{{item.date}}</span> </p>
+                                <p class="hidden-xs" id="fontstyle">{{item.content}}</p>
+                                <div id="label"><span>{{item.label}}</span></div>
+                            </div>  
+                        </div>
+                    </div>
+                    <!-- HTML&CSS -->
+                    <div class="publish nonactive"> 
+                        <div class="row" v-for="(item,index) in HCList">
+                            <div class="col-sm-12">
+                                <h3><span id="Hheder">{{item.title}}</span></h3>
+                                <p class="text-muted hidden-xs"> <span>author:小青蛙 /</span> <span>{{item.date}}</span> </p>
+                                <p class="hidden-xs" id="fontstyle">{{item.content}}</p>
+                                <div id="label"><span>{{item.label}}</span></div>
+                            </div>  
+                        </div>  
+                    </div>
+                    <!-- JavaScript -->
+                    <div class="publish nonactive">
+                        <div class="row" v-for="(item,index) in JSList">
+                            <div class="col-sm-12">
+                                <h3><span id="Hheder">{{item.title}}</span></h3>
+                                <p class="text-muted hidden-xs"> <span>author:小青蛙 /</span> <span>{{item.date}}</span> </p>
+                                <p class="hidden-xs" id="fontstyle">{{item.content}}</p>
+                                <div id="label"><span>{{item.label}}</span></div>
+                            </div>  
+                        </div>
+                    </div>
+                    <!-- Java -->
+                    <div class="publish nonactive"> 
+                        <div class="row" v-for="(item,index) in JList">
+                            <div class="col-sm-12">
+                                <h3><span id="Hheder">{{item.title}}</span></h3>
+                                <p class="text-muted hidden-xs"> <span>author:小青蛙 /</span> <span>{{item.date}}</span> </p>
+                                <p class="hidden-xs" id="fontstyle">{{item.content}}</p>
+                                <div id="label"><span>{{item.label}}</span></div>
+                            </div>  
+                        </div> 
+                    </div>
+                    <!-- Webpack -->
+                    <div class="publish nonactive">
+                        <div class="row" v-for="(item,index) in WList">
+                            <div class="col-sm-12">
+                                <h3><span id="Hheder">{{item.title}}</span></h3>
+                                <p class="text-muted hidden-xs"> <span>author:小青蛙 /</span> <span>{{item.date}}</span> </p>
+                                <p class="hidden-xs" id="fontstyle">{{item.content}}</p>
+                                <div id="label"><span>{{item.label}}</span></div>
+                            </div>  
+                        </div>
+                    </div>
+                    <!-- Bootstrap -->
+                    <div class="publish nonactive"> 
+                        <div class="row" v-for="(item,index) in BList">
+                            <div class="col-sm-12">
+                                <h3><span id="Hheder">{{item.title}}</span></h3>
+                                <p class="text-muted hidden-xs"> <span>author:小青蛙 /</span> <span>{{item.date}}</span> </p>
+                                <p class="hidden-xs" id="fontstyle">{{item.content}}</p>
+                                <div id="label"><span>{{item.label}}</span></div>
+                            </div>  
+                        </div> 
+                    </div>
+                    <nav aria-label="Page navigation">
+                        <ul class="pagination">
+                            <li>
+                                <a href="#" aria-label="Previous">
+                                    <span aria-hidden="true">&laquo;</span>
+                                </a>
+                            </li>
+                            <li><a href="#">1</a></li>
+                            <li><a href="#">2</a></li>
+                            <li><a href="#">3</a></li>
+                            <li><a href="#">4</a></li>
+                            <li><a href="#">5</a></li>
+                            <li>
+                                <a href="#" aria-label="Next">
+                                    <span aria-hidden="true">&raquo;</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
+                </article>
+            </div>
+        </div>
+
+        <!-- 底部 -->
+        <footer id="main-footer"  style="padding-top: 0; background-color: #3ea1df; color: white;">
+            <div id="footer-rights">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <p>Copyright  ©  2021 小青蛙 <a href="#" target="blank">Little DEMO</a> / All rights reserved.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <!-- 返回顶部 -->
+        <div id="backTop">
+            △
+        </div>
+    </div>
+</body>
+</html>
+<script>
+    var vm = new Vue({
+        el:'#app',
+        data:{
+            pList:[
+                {
+                    title:'Django启用memcache缓存',
+                    date:'2020,12,14',
+                    label:'Python',
+                    content:'在动态网站中,用户所有的请求,服务器都会去数据库中进行相应的增,删,查,改,渲染模板,执行业务逻辑,最后生成用户看到的页面.当一个网站的用户访问量很大的时候,每一次的的后台操作,都会消耗很多的服务端资源,所以必须使用缓存来减轻后端服务器的压力',
+                    author:'author:小青蛙'
+                },
+                {
+                    title:'Django启用memcache缓存',
+                    date:'2020,12,14',
+                    label:'Python',
+                    content:'在动态网站中,用户所有的请求,服务器都会去数据库中进行相应的增,删,查,改,渲染模板,执行业务逻辑,最后生成用户看到的页面.当一个网站的用户访问量很大的时候,每一次的的后台操作,都会消耗很多的服务端资源,所以必须使用缓存来减轻后端服务器的压力',
+                    author:'author:小青蛙'
+                },
+                {
+                    title:'Django启用memcache缓存',
+                    date:'2020,12,14',
+                    label:'Python',
+                    content:'在动态网站中,用户所有的请求,服务器都会去数据库中进行相应的增,删,查,改,渲染模板,执行业务逻辑,最后生成用户看到的页面.当一个网站的用户访问量很大的时候,每一次的的后台操作,都会消耗很多的服务端资源,所以必须使用缓存来减轻后端服务器的压力',
+                    author:'author:小青蛙'
+                },
+                {
+                    title:'Django启用memcache缓存',
+                    date:'2020,12,14',
+                    label:'Python',
+                    content:'在动态网站中,用户所有的请求,服务器都会去数据库中进行相应的增,删,查,改,渲染模板,执行业务逻辑,最后生成用户看到的页面.当一个网站的用户访问量很大的时候,每一次的的后台操作,都会消耗很多的服务端资源,所以必须使用缓存来减轻后端服务器的压力',
+                    author:'author:小青蛙'
+                },
+                {
+                    title:'Django启用memcache缓存',
+                    date:'2020,12,14',
+                    label:'Python',
+                    content:'在动态网站中,用户所有的请求,服务器都会去数据库中进行相应的增,删,查,改,渲染模板,执行业务逻辑,最后生成用户看到的页面.当一个网站的用户访问量很大的时候,每一次的的后台操作,都会消耗很多的服务端资源,所以必须使用缓存来减轻后端服务器的压力',
+                    author:'author:小青蛙'
+                },
+                {
+                    title:'Django启用memcache缓存',
+                    date:'2020,12,14',
+                    label:'Python',
+                    content:'在动态网站中,用户所有的请求,服务器都会去数据库中进行相应的增,删,查,改,渲染模板,执行业务逻辑,最后生成用户看到的页面.当一个网站的用户访问量很大的时候,每一次的的后台操作,都会消耗很多的服务端资源,所以必须使用缓存来减轻后端服务器的压力',
+                    author:'author:小青蛙'
+                },
+
+            ],
+            HCList:[                
+                {
+                    title:'HTML&CSS启用memcache缓存',
+                    date:'2020,12,14',
+                    label:'HTML&CSS',
+                    content:'在动态网站中,用户所有的请求,服务器都会去数据库中进行相应的增,删,查,改,渲染模板,执行业务逻辑,最后生成用户看到的页面.当一个网站的用户访问量很大的时候,每一次的的后台操作,都会消耗很多的服务端资源,所以必须使用缓存来减轻后端服务器的压力',
+                    author:'author:小青蛙'
+                },
+                {
+                    title:'HTML&CSS启用memcache缓存',
+                    date:'2020,12,14',
+                    label:'HTML&CSS',
+                    content:'在动态网站中,用户所有的请求,服务器都会去数据库中进行相应的增,删,查,改,渲染模板,执行业务逻辑,最后生成用户看到的页面.当一个网站的用户访问量很大的时候,每一次的的后台操作,都会消耗很多的服务端资源,所以必须使用缓存来减轻后端服务器的压力',
+                    author:'author:小青蛙'
+                },
+                {
+                    title:'HTML&CSS启用memcache缓存',
+                    date:'2020,12,14',
+                    label:'HTML&CSS',
+                    content:'在动态网站中,用户所有的请求,服务器都会去数据库中进行相应的增,删,查,改,渲染模板,执行业务逻辑,最后生成用户看到的页面.当一个网站的用户访问量很大的时候,每一次的的后台操作,都会消耗很多的服务端资源,所以必须使用缓存来减轻后端服务器的压力',
+                    author:'author:小青蛙'
+                },
+                {
+                    title:'HTML&CSS启用memcache缓存',
+                    date:'2020,12,14',
+                    label:'HTML&CSS',
+                    content:'在动态网站中,用户所有的请求,服务器都会去数据库中进行相应的增,删,查,改,渲染模板,执行业务逻辑,最后生成用户看到的页面.当一个网站的用户访问量很大的时候,每一次的的后台操作,都会消耗很多的服务端资源,所以必须使用缓存来减轻后端服务器的压力',
+                    author:'author:小青蛙'
+                },
+                {
+                    title:'HTML&CSS启用memcache缓存',
+                    date:'2020,12,14',
+                    label:'HTML&CSS',
+                    content:'在动态网站中,用户所有的请求,服务器都会去数据库中进行相应的增,删,查,改,渲染模板,执行业务逻辑,最后生成用户看到的页面.当一个网站的用户访问量很大的时候,每一次的的后台操作,都会消耗很多的服务端资源,所以必须使用缓存来减轻后端服务器的压力',
+                    author:'author:小青蛙'
+                },
+                {
+                    title:'HTML&CSS启用memcache缓存',
+                    date:'2020,12,14',
+                    label:'HTML&CSS',
+                    content:'在动态网站中,用户所有的请求,服务器都会去数据库中进行相应的增,删,查,改,渲染模板,执行业务逻辑,最后生成用户看到的页面.当一个网站的用户访问量很大的时候,每一次的的后台操作,都会消耗很多的服务端资源,所以必须使用缓存来减轻后端服务器的压力',
+                    author:'author:小青蛙'
+                }
+            ],
+            JSList:[
+                {
+                    title:'Javascript启用memcache缓存',
+                    date:'2020,12,14',
+                    label:'JavaScript',
+                    content:'在动态网站中,用户所有的请求,服务器都会去数据库中进行相应的增,删,查,改,渲染模板,执行业务逻辑,最后生成用户看到的页面.当一个网站的用户访问量很大的时候,每一次的的后台操作,都会消耗很多的服务端资源,所以必须使用缓存来减轻后端服务器的压力',
+                    author:'author:小青蛙'
+                },
+                {
+                    title:'Javascript启用memcache缓存',
+                    date:'2020,12,14',
+                    label:'JavaScript',
+                    content:'在动态网站中,用户所有的请求,服务器都会去数据库中进行相应的增,删,查,改,渲染模板,执行业务逻辑,最后生成用户看到的页面.当一个网站的用户访问量很大的时候,每一次的的后台操作,都会消耗很多的服务端资源,所以必须使用缓存来减轻后端服务器的压力',
+                    author:'author:小青蛙'
+                },
+                {
+                    title:'Javascript启用memcache缓存',
+                    date:'2020,12,14',
+                    label:'JavaScript',
+                    content:'在动态网站中,用户所有的请求,服务器都会去数据库中进行相应的增,删,查,改,渲染模板,执行业务逻辑,最后生成用户看到的页面.当一个网站的用户访问量很大的时候,每一次的的后台操作,都会消耗很多的服务端资源,所以必须使用缓存来减轻后端服务器的压力',
+                    author:'author:小青蛙'
+                },
+                {
+                    title:'Javascript启用memcache缓存',
+                    date:'2020,12,14',
+                    label:'JavaScript',
+                    content:'在动态网站中,用户所有的请求,服务器都会去数据库中进行相应的增,删,查,改,渲染模板,执行业务逻辑,最后生成用户看到的页面.当一个网站的用户访问量很大的时候,每一次的的后台操作,都会消耗很多的服务端资源,所以必须使用缓存来减轻后端服务器的压力',
+                    author:'author:小青蛙'
+                },
+                {
+                    title:'Javascript启用memcache缓存',
+                    date:'2020,12,14',
+                    label:'JavaScript',
+                    content:'在动态网站中,用户所有的请求,服务器都会去数据库中进行相应的增,删,查,改,渲染模板,执行业务逻辑,最后生成用户看到的页面.当一个网站的用户访问量很大的时候,每一次的的后台操作,都会消耗很多的服务端资源,所以必须使用缓存来减轻后端服务器的压力',
+                    author:'author:小青蛙'
+                },
+                {
+                    title:'Javascript启用memcache缓存',
+                    date:'2020,12,14',
+                    label:'JavaScript',
+                    content:'在动态网站中,用户所有的请求,服务器都会去数据库中进行相应的增,删,查,改,渲染模板,执行业务逻辑,最后生成用户看到的页面.当一个网站的用户访问量很大的时候,每一次的的后台操作,都会消耗很多的服务端资源,所以必须使用缓存来减轻后端服务器的压力',
+                    author:'author:小青蛙'
+                }
+            ],
+            JList:[
+                {
+                    title:'Java启用memcache缓存',
+                    date:'2020,12,14',
+                    label:'JAVA',
+                    content:'在动态网站中,用户所有的请求,服务器都会去数据库中进行相应的增,删,查,改,渲染模板,执行业务逻辑,最后生成用户看到的页面.当一个网站的用户访问量很大的时候,每一次的的后台操作,都会消耗很多的服务端资源,所以必须使用缓存来减轻后端服务器的压力',
+                    author:'author:小青蛙'
+                },
+                {
+                    title:'Java启用memcache缓存',
+                    date:'2020,12,14',
+                    label:'JAVA',
+                    content:'在动态网站中,用户所有的请求,服务器都会去数据库中进行相应的增,删,查,改,渲染模板,执行业务逻辑,最后生成用户看到的页面.当一个网站的用户访问量很大的时候,每一次的的后台操作,都会消耗很多的服务端资源,所以必须使用缓存来减轻后端服务器的压力',
+                    author:'author:小青蛙'
+                },
+                {
+                    title:'Java启用memcache缓存',
+                    date:'2020,12,14',
+                    label:'JAVA',
+                    content:'在动态网站中,用户所有的请求,服务器都会去数据库中进行相应的增,删,查,改,渲染模板,执行业务逻辑,最后生成用户看到的页面.当一个网站的用户访问量很大的时候,每一次的的后台操作,都会消耗很多的服务端资源,所以必须使用缓存来减轻后端服务器的压力',
+                    author:'author:小青蛙'
+                },
+                {
+                    title:'Java启用memcache缓存',
+                    date:'2020,12,14',
+                    label:'JAVA',
+                    content:'在动态网站中,用户所有的请求,服务器都会去数据库中进行相应的增,删,查,改,渲染模板,执行业务逻辑,最后生成用户看到的页面.当一个网站的用户访问量很大的时候,每一次的的后台操作,都会消耗很多的服务端资源,所以必须使用缓存来减轻后端服务器的压力',
+                    author:'author:小青蛙'
+                },
+                {
+                    title:'Java启用memcache缓存',
+                    date:'2020,12,14',
+                    label:'JAVA',
+                    content:'在动态网站中,用户所有的请求,服务器都会去数据库中进行相应的增,删,查,改,渲染模板,执行业务逻辑,最后生成用户看到的页面.当一个网站的用户访问量很大的时候,每一次的的后台操作,都会消耗很多的服务端资源,所以必须使用缓存来减轻后端服务器的压力',
+                    author:'author:小青蛙'
+                },
+                {
+                    title:'Java启用memcache缓存',
+                    date:'2020,12,14',
+                    label:'JAVA',
+                    content:'在动态网站中,用户所有的请求,服务器都会去数据库中进行相应的增,删,查,改,渲染模板,执行业务逻辑,最后生成用户看到的页面.当一个网站的用户访问量很大的时候,每一次的的后台操作,都会消耗很多的服务端资源,所以必须使用缓存来减轻后端服务器的压力',
+                    author:'author:小青蛙'
+                }
+            ],
+            WList:[
+                {
+                    title:'Webpack启用memcache缓存',
+                    date:'2020,12,14',
+                    label:'Webpack',
+                    content:'在动态网站中,用户所有的请求,服务器都会去数据库中进行相应的增,删,查,改,渲染模板,执行业务逻辑,最后生成用户看到的页面.当一个网站的用户访问量很大的时候,每一次的的后台操作,都会消耗很多的服务端资源,所以必须使用缓存来减轻后端服务器的压力',
+                    author:'author:小青蛙'
+                },
+                {
+                    title:'Webpack启用memcache缓存',
+                    date:'2020,12,14',
+                    label:'Webpack',
+                    content:'在动态网站中,用户所有的请求,服务器都会去数据库中进行相应的增,删,查,改,渲染模板,执行业务逻辑,最后生成用户看到的页面.当一个网站的用户访问量很大的时候,每一次的的后台操作,都会消耗很多的服务端资源,所以必须使用缓存来减轻后端服务器的压力',
+                    author:'author:小青蛙'
+                },
+                {
+                    title:'Webpack启用memcache缓存',
+                    date:'2020,12,14',
+                    label:'Webpack',
+                    content:'在动态网站中,用户所有的请求,服务器都会去数据库中进行相应的增,删,查,改,渲染模板,执行业务逻辑,最后生成用户看到的页面.当一个网站的用户访问量很大的时候,每一次的的后台操作,都会消耗很多的服务端资源,所以必须使用缓存来减轻后端服务器的压力',
+                    author:'author:小青蛙'
+                },
+                {
+                    title:'Webpack启用memcache缓存',
+                    date:'2020,12,14',
+                    label:'Webpack',
+                    content:'在动态网站中,用户所有的请求,服务器都会去数据库中进行相应的增,删,查,改,渲染模板,执行业务逻辑,最后生成用户看到的页面.当一个网站的用户访问量很大的时候,每一次的的后台操作,都会消耗很多的服务端资源,所以必须使用缓存来减轻后端服务器的压力',
+                    author:'author:小青蛙'
+                },
+                {
+                    title:'Webpack启用memcache缓存',
+                    date:'2020,12,14',
+                    label:'Webpack',
+                    content:'在动态网站中,用户所有的请求,服务器都会去数据库中进行相应的增,删,查,改,渲染模板,执行业务逻辑,最后生成用户看到的页面.当一个网站的用户访问量很大的时候,每一次的的后台操作,都会消耗很多的服务端资源,所以必须使用缓存来减轻后端服务器的压力',
+                    author:'author:小青蛙'
+                },
+                {
+                    title:'Webpack启用memcache缓存',
+                    date:'2020,12,14',
+                    label:'Webpack',
+                    content:'在动态网站中,用户所有的请求,服务器都会去数据库中进行相应的增,删,查,改,渲染模板,执行业务逻辑,最后生成用户看到的页面.当一个网站的用户访问量很大的时候,每一次的的后台操作,都会消耗很多的服务端资源,所以必须使用缓存来减轻后端服务器的压力',
+                    author:'author:小青蛙'
+                }
+            ],
+            BList:[
+                {
+                    title:'Bootstrap启用memcache缓存',
+                    date:'2020,12,14',
+                    label:'Bootstrap',
+                    content:'在动态网站中,用户所有的请求,服务器都会去数据库中进行相应的增,删,查,改,渲染模板,执行业务逻辑,最后生成用户看到的页面.当一个网站的用户访问量很大的时候,每一次的的后台操作,都会消耗很多的服务端资源,所以必须使用缓存来减轻后端服务器的压力',
+                    author:'author:小青蛙'
+                },
+                {
+                    title:'Bootstrap启用memcache缓存',
+                    date:'2020,12,14',
+                    label:'Bootstrap',
+                    content:'在动态网站中,用户所有的请求,服务器都会去数据库中进行相应的增,删,查,改,渲染模板,执行业务逻辑,最后生成用户看到的页面.当一个网站的用户访问量很大的时候,每一次的的后台操作,都会消耗很多的服务端资源,所以必须使用缓存来减轻后端服务器的压力',
+                    author:'author:小青蛙'
+                },
+                {
+                    title:'Bootstrap启用memcache缓存',
+                    date:'2020,12,14',
+                    label:'Bootstrap',
+                    content:'在动态网站中,用户所有的请求,服务器都会去数据库中进行相应的增,删,查,改,渲染模板,执行业务逻辑,最后生成用户看到的页面.当一个网站的用户访问量很大的时候,每一次的的后台操作,都会消耗很多的服务端资源,所以必须使用缓存来减轻后端服务器的压力',
+                    author:'author:小青蛙'
+                },
+                {
+                    title:'Bootstrap启用memcache缓存',
+                    date:'2020,12,14',
+                    label:'Bootstrap',
+                    content:'在动态网站中,用户所有的请求,服务器都会去数据库中进行相应的增,删,查,改,渲染模板,执行业务逻辑,最后生成用户看到的页面.当一个网站的用户访问量很大的时候,每一次的的后台操作,都会消耗很多的服务端资源,所以必须使用缓存来减轻后端服务器的压力',
+                    author:'author:小青蛙'
+                },
+                {
+                    title:'Bootstrap启用memcache缓存',
+                    date:'2020,12,14',
+                    label:'Bootstrap',
+                    content:'在动态网站中,用户所有的请求,服务器都会去数据库中进行相应的增,删,查,改,渲染模板,执行业务逻辑,最后生成用户看到的页面.当一个网站的用户访问量很大的时候,每一次的的后台操作,都会消耗很多的服务端资源,所以必须使用缓存来减轻后端服务器的压力',
+                    author:'author:小青蛙'
+                },
+                {
+                    title:'Bootstrap启用memcache缓存',
+                    date:'2020,12,14',
+                    label:'Bootstrap',
+                    content:'在动态网站中,用户所有的请求,服务器都会去数据库中进行相应的增,删,查,改,渲染模板,执行业务逻辑,最后生成用户看到的页面.当一个网站的用户访问量很大的时候,每一次的的后台操作,都会消耗很多的服务端资源,所以必须使用缓存来减轻后端服务器的压力',
+                    author:'author:小青蛙'
+                },
+                {
+                    title:'Bootstrap启用memcache缓存',
+                    date:'2020,12,14',
+                    label:'Bootstrap',
+                    content:'在动态网站中,用户所有的请求,服务器都会去数据库中进行相应的增,删,查,改,渲染模板,执行业务逻辑,最后生成用户看到的页面.当一个网站的用户访问量很大的时候,每一次的的后台操作,都会消耗很多的服务端资源,所以必须使用缓存来减轻后端服务器的压力',
+                    author:'author:小青蛙'
+                }
+            ],
+        },
+        methods:{
+
+        }
+    })
+</script>
